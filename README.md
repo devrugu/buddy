@@ -1,16 +1,13 @@
 # buddy
 
-A new Flutter project.
+# Turist-Rehber Bağlantı Uygulaması
 
-## Getting Started
+Bu uygulama, turistleri yerel rehberlerle buluşturarak benzersiz gezi deneyimleri sunar. Kullanıcılar, yerel rehberlerle kolayca iletişime geçebilir ve yeni yerleri keşfederken otantik deneyimler yaşayabilirler.
 
-This project is a starting point for a Flutter application.
+## Özellikler
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Kullanıcı dostu arayüz.
+- Turist ve rehber için ayrı kayıt ve giriş seçenekleri.
+- Çeşitli kriterlere göre rehber arama özelliği.
+- Yerel rehberlerle mesajlaşma imkanı.
+- Kullanıcı puanlama ve yorum sistemi.
