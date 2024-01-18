@@ -12,11 +12,14 @@ class WelcomeScreen extends StatelessWidget {
     return Scaffold(
       body: Container(
         padding: const EdgeInsets.all(30),
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topRight,
             end: Alignment.bottomLeft,
-            colors: [Colors.lightBlue.shade200, Colors.lightBlue.shade600],
+            colors: [
+              Color.fromARGB(255, 248, 226, 165),
+              Color.fromARGB(255, 237, 238, 163)
+            ],
           ),
         ),
         child: Column(
@@ -24,7 +27,7 @@ class WelcomeScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             SvgPicture.asset(
-              'assets/icons/airtable.svg',
+              'assets/icons/buddy_logo.svg',
               height: 100, // Logo boyutunu ayarlayın
             ),
             const SizedBox(height: 40),
@@ -32,7 +35,7 @@ class WelcomeScreen extends StatelessWidget {
               'Yeni Maceralara Hazır Mısınız?',
               style: TextStyle(
                 fontSize: 28,
-                color: Colors.white,
+                color: Color.fromARGB(255, 46, 51, 54),
                 fontWeight: FontWeight.bold,
               ),
               textAlign: TextAlign.center,
