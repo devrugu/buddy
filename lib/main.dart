@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'src/views/screens/welcome_screen.dart'; // Önceki adımda oluşturduğunuz dosyayı buraya dahil edin.
+import 'package:buddy/src/views/screens/welcome_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,11 +11,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Turist Rehber Uygulaması',
+      title: 'BUDDY App',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: Colors.blue,
+        scaffoldBackgroundColor: Colors.white,
+        fontFamily: 'Urbanist',
+        // Diğer tema ayarları...
       ),
-      home: const WelcomeScreen(),
+      home: const WelcomeScreen(), // Değiştirildi: WelcomePage -> WelcomeScreen
     );
   }
 }

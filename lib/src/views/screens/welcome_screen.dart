@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import '../widgets/custom_button.dart';
-import 'sign_up_screen.dart';
-import '../../utils/route_transitions.dart';
+import 'package:buddy/src/views/widgets/custom_button.dart';
+import 'package:buddy/src/views/screens/sign_in_screen.dart';
+import 'package:buddy/src/views/screens/sign_up_tourist_screen.dart';
+import 'package:buddy/src/views/screens/sign_up_guide_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -10,56 +10,67 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        padding: const EdgeInsets.all(30),
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
-            colors: [
-              Color.fromARGB(255, 248, 226, 165),
-              Color.fromARGB(255, 237, 238, 163)
-            ],
-          ),
-        ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
         child: Column(
+          mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            SvgPicture.asset(
-              'assets/icons/buddy_logo.svg',
-              height: 100, // Logo boyutunu ayarlayın
+            // Logo image
+            Image.asset(
+              'assets/images/Logo.png', // Yol doğru olduğunu varsayıyoruz
+              height: 300, // Logo boyutunu ayarlayabilirsiniz
             ),
-            const SizedBox(height: 40),
-            const Text(
-              'Yeni Maceralara Hazır Mısınız?',
-              style: TextStyle(
-                fontSize: 28,
-                color: Color.fromARGB(255, 46, 51, 54),
-                fontWeight: FontWeight.bold,
+            const SizedBox(height: 48), // Logo ve butonlar arası boşluk
+            // 'Sign up for Tourist' butonu
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                  horizontal: 50.0), // Buton genişliği için padding
+              child: CustomButton(
+                text: 'Sign up as Tourist',
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SignUpTouristScreen()),
+                  );
+                  // Turist için kayıt işlevi
+                },
               ),
-              textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 60),
-            CustomButton(
-              text: 'Giriş Yap',
-              backgroundColor: const Color.fromARGB(255, 250, 225, 172),
-              textColor: const Color.fromARGB(255, 46, 51, 54),
-              onPressed: () {
-                // Giriş sayfasına yönlendirme işlemi
-              },
+            const SizedBox(height: 16), // Butonlar arası boşluk
+            // 'Sign up for Guide' butonu
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                  horizontal: 50.0), // Buton genişliği için padding
+              child: CustomButton(
+                text: 'Sign up as Guide',
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SignUpGuideScreen()),
+                  ); // Rehber için kayıt işlevi
+                },
+              ),
             ),
-            const SizedBox(height: 20),
-            CustomButton(
-              text: 'Kaydol',
-              backgroundColor: const Color.fromARGB(255, 250, 225, 172),
-              textColor: const Color.fromARGB(255, 46, 51, 54),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  slideTransitionRoute(const SignUpScreen()),
-                );
-              },
+            const SizedBox(
+                height: 32), // Metin ve butonlar arası daha fazla boşluk
+            // 'Already have an account? Sign in' metni
+            Align(
+              alignment: Alignment.center,
+              child: TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SignInScreen()),
+                  );
+                  // Oturum açma sayfasına yönlendir
+                },
+                child: const Text('Already have an account? Sign in'),
+              ),
             ),
           ],
         ),
