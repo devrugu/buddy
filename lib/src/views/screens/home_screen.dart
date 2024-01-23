@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:buddy/src/views/widgets/custom_button.dart';
 import 'package:buddy/src/views/widgets/custom_icons.dart';
 import 'package:buddy/src/views/widgets/guide_card.dart';
 
