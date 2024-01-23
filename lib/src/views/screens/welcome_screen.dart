@@ -19,14 +19,12 @@ class WelcomeScreen extends StatelessWidget {
           children: <Widget>[
             // Logo image
             Image.asset(
-              'assets/images/Logo.png', // Yol doğru olduğunu varsayıyoruz
-              height: 300, // Logo boyutunu ayarlayabilirsiniz
+              'assets/images/Logo.png',
+              height: 300,
             ),
-            const SizedBox(height: 48), // Logo ve butonlar arası boşluk
-            // 'Sign up for Tourist' butonu
+            const SizedBox(height: 48),
             Padding(
-              padding: const EdgeInsets.symmetric(
-                  horizontal: 50.0), // Buton genişliği için padding
+              padding: const EdgeInsets.symmetric(horizontal: 50.0),
               child: CustomButton(
                 text: 'Sign up as Tourist',
                 onPressed: () {
@@ -35,15 +33,12 @@ class WelcomeScreen extends StatelessWidget {
                     MaterialPageRoute(
                         builder: (context) => const SignUpTouristScreen()),
                   );
-                  // Turist için kayıt işlevi
                 },
               ),
             ),
-            const SizedBox(height: 16), // Butonlar arası boşluk
-            // 'Sign up for Guide' butonu
+            const SizedBox(height: 16),
             Padding(
-              padding: const EdgeInsets.symmetric(
-                  horizontal: 50.0), // Buton genişliği için padding
+              padding: const EdgeInsets.symmetric(horizontal: 50.0),
               child: CustomButton(
                 text: 'Sign up as Guide',
                 onPressed: () {
@@ -51,13 +46,11 @@ class WelcomeScreen extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                         builder: (context) => const SignUpGuideScreen()),
-                  ); // Rehber için kayıt işlevi
+                  );
                 },
               ),
             ),
-            const SizedBox(
-                height: 32), // Metin ve butonlar arası daha fazla boşluk
-            // 'Already have an account? Sign in' metni
+            const SizedBox(height: 32),
             Align(
               alignment: Alignment.center,
               child: TextButton(
@@ -67,7 +60,6 @@ class WelcomeScreen extends StatelessWidget {
                     MaterialPageRoute(
                         builder: (context) => const SignInScreen()),
                   );
-                  // Oturum açma sayfasına yönlendir
                 },
                 child: const Text('Already have an account? Sign in'),
               ),

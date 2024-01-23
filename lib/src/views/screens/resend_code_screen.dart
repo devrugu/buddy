@@ -100,14 +100,12 @@ class _ResendCodeScreenState extends State<ResendCodeScreen> {
                 onPressed: _start == 0
                     ? () {
                         // Resend code functionality
-                        // Reset the timer if needed
                       }
                     : null,
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.white,
                   backgroundColor: const Color(0xFF0466C8),
-                  minimumSize:
-                      const Size(double.infinity, 50), // Full width button
+                  minimumSize: const Size(double.infinity, 50),
                 ),
                 child: const Text('Resend code'),
               ),

@@ -16,9 +16,8 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.blue,
         scaffoldBackgroundColor: Colors.white,
         fontFamily: 'Urbanist',
-        // Diğer tema ayarları...
       ),
-      home: const WelcomeScreen(), // Değiştirildi: WelcomePage -> WelcomeScreen
+      home: const WelcomeScreen(),
     );
   }
 }

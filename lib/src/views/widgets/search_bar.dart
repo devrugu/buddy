@@ -1,4 +1,3 @@
-// search_bar.dart
 import 'package:flutter/material.dart';
 
 class SearchBar extends StatefulWidget {
@@ -21,7 +20,6 @@ class _SearchBarState extends State<SearchBar> {
                 title: Text('Sort by'),
                 trailing: Icon(Icons.filter_list),
               ),
-              // Diğer filtre seçenekleri...
             ],
           ),
         );

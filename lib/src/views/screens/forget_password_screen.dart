@@ -72,7 +72,6 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                           MaterialPageRoute(
                               builder: (context) => const ResendCodeScreen()),
                         );
-                        // Handle continue press with selected method
                       }
                     : null,
                 style: ElevatedButton.styleFrom(

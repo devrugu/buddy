@@ -1,4 +1,3 @@
-// Bu kod custom_text_form_field.dart dosyasında yer alacak
 import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatelessWidget {

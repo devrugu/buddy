@@ -41,11 +41,10 @@ class SignInScreen extends StatelessWidget {
               CustomButton(
                 text: 'Sign In',
                 onPressed: () {
-                  // Navigator.push metodunu kullanarak HomeScreen sayfasına git
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => const HomeScreen()),
-                  ); // Sign in action
+                  );
                 },
               ),
               const SizedBox(height: 16),

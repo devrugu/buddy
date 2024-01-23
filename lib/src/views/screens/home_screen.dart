@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:buddy/src/views/widgets/custom_button.dart'; // CustomButton widget dosyanızın yolu
-import 'package:buddy/src/views/widgets/custom_icons.dart'; // CustomIcons sınıfınızın yolu
+import 'package:buddy/src/views/widgets/custom_button.dart';
+import 'package:buddy/src/views/widgets/custom_icons.dart';
+import 'package:buddy/src/views/widgets/guide_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -32,7 +33,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 title: const Text('Country Filter'),
                 trailing: const Icon(Icons.arrow_drop_down),
                 onTap: () {
-                  // Ülke seçimi için bir liste gösterilecek
                   showDialog(
                     context: context,
                     builder: (BuildContext context) {
@@ -66,15 +66,137 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  final List<Map<String, dynamic>> guides = [
+    {
+      'name': 'Can',
+      'location': 'Istanbul',
+      'bio': 'Born and raised in Istanbul',
+      'reviews': 9,
+      'rating': 5.0,
+      'hourlyRate': 'FREE',
+      'image': 'assets/images/profile.jpg'
+    },
+    {
+      'name': 'Berk',
+      'location': 'Çanakkale',
+      'bio': 'History lover and foodie',
+      'reviews': 12,
+      'rating': 4.5,
+      'hourlyRate': '50₺',
+      'image': 'assets/images/profile.jpg'
+    },
+    {
+      'name': 'Elif',
+      'location': 'Izmir',
+      'bio': 'Exploring hidden gems of my city',
+      'reviews': 8,
+      'rating': 4.8,
+      'hourlyRate': '30₺',
+      'image': 'assets/images/profile.jpg'
+    },
+    {
+      'name': 'Ahmet',
+      'location': 'Ankara',
+      'bio': 'Ankara\'s history and culture enthusiast',
+      'reviews': 14,
+      'rating': 4.2,
+      'hourlyRate': '45₺',
+      'image': 'assets/images/profile.jpg'
+    },
+    {
+      'name': 'Leyla',
+      'location': 'Antalya',
+      'bio': 'Beach life and historical tours',
+      'reviews': 20,
+      'rating': 4.9,
+      'hourlyRate': '60₺',
+      'image': 'assets/images/profile.jpg'
+    },
+    {
+      'name': 'Mehmet',
+      'location': 'Bursa',
+      'bio': 'Mountains and myths of Bursa',
+      'reviews': 5,
+      'rating': 4.4,
+      'hourlyRate': '35₺',
+      'image': 'assets/images/profile.jpg'
+    },
+    {
+      'name': 'Selin',
+      'location': 'Edirne',
+      'bio': 'A guide to Edirne\'s architectural wonders',
+      'reviews': 11,
+      'rating': 4.7,
+      'hourlyRate': '40₺',
+      'image': 'assets/images/profile.jpg'
+    },
+    {
+      'name': 'Ozan',
+      'location': 'Sivas',
+      'bio': 'Sivas through the ages',
+      'reviews': 9,
+      'rating': 4.3,
+      'hourlyRate': '55₺',
+      'image': 'assets/images/profile.jpg'
+    },
+    {
+      'name': 'Samet',
+      'location': 'Ordu',
+      'bio': 'The rivers and valleys of Ordu',
+      'reviews': 14,
+      'rating': 5.0,
+      'hourlyRate': '50₺',
+      'image': 'assets/images/profile.jpg'
+    },
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home'),
       ),
-      drawer: const Drawer(
-          // Drawer içeriği...
-          ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            const SizedBox(
+              height: 300,
+              child: DrawerHeader(
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                ),
+                child: Column(
+                  children: [
+                    CircleAvatar(
+                      backgroundImage: AssetImage('assets/images/profile.jpg'),
+                      radius: 100,
+                    ),
+                    Text(
+                      'Uğurcan Yılmaz',
+                      style: TextStyle(color: Colors.white, fontSize: 24),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.account_circle),
+              title: const Text('Profile'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.settings),
+              title: const Text('Settings'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
+      ),
       body: Column(
         children: [
           Padding(
@@ -107,9 +229,21 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
-          const Expanded(
-            child: Center(
-              child: Text('Home Screen Content Here'),
+          Expanded(
+            child: ListView.builder(
+              itemCount: guides.length,
+              itemBuilder: (context, index) {
+                final guide = guides[index];
+                return GuideCard(
+                  name: guide['name'],
+                  location: guide['location'],
+                  bio: guide['bio'],
+                  reviews: guide['reviews'],
+                  rating: guide['rating'],
+                  hourlyRate: guide['hourlyRate'],
+                  image: guide['image'],
+                );
+              },
             ),
           ),
         ],

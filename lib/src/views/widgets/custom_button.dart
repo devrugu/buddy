@@ -1,19 +1,17 @@
-// custom_button.dart
-
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
-  final Color? color; // Butonun arka plan rengini özelleştirmek için eklendi
-  final Color? textColor; // Butonun metin rengini özelleştirmek için eklendi
+  final Color? color;
+  final Color? textColor;
 
   const CustomButton({
     super.key,
     required this.text,
     required this.onPressed,
-    this.color, // Yeni parametre
-    this.textColor, // Yeni parametre
+    this.color,
+    this.textColor,
   });
 
   @override
@@ -21,8 +19,7 @@ class CustomButton extends StatelessWidget {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         foregroundColor: textColor ?? Colors.white,
-        backgroundColor: color ??
-            Theme.of(context).primaryColor, // Metin rengi özelleştirilebilir
+        backgroundColor: color ?? Theme.of(context).primaryColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30.0),
         ),
@@ -50,17 +47,13 @@ class CustomDrawerButton extends StatelessWidget {
           foregroundColor: Colors.white,
           backgroundColor: Theme.of(context).primaryColor,
           shape: const RoundedRectangleBorder(
-            borderRadius:
-                BorderRadius.zero, // Tam genişlik için borderRadius sıfır
+            borderRadius: BorderRadius.zero,
           ),
-          padding:
-              const EdgeInsets.symmetric(vertical: 20.0), // Daha fazla padding
+          padding: const EdgeInsets.symmetric(vertical: 20.0),
         ),
         onPressed: onPressed,
         child: Text(text),
       ),
     );
   }
-} // custom_button.dart içinde
-
-// ... (Mevcut CustomButton widget kodları)
+}
